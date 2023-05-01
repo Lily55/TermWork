@@ -24,6 +24,12 @@ namespace TermWork_2._0
             conn = new NpgsqlConnection(connString);
             comboBox1.Items.Insert(0, "Заказы");
             comboBox1.Items.Insert(1, "Менеджеры");
+            comboBox1.Items.Insert(2, "Залы");
+            comboBox1.Items.Insert(3, "Блюда");
+            comboBox1.Items.Insert(4, "Продукты");
+            comboBox1.Items.Insert(5, "Арендованные залы");
+            comboBox1.Items.Insert(6, "Заказанные блюда");
+            comboBox1.Items.Insert(7, "Продукты в блюдах");
         }
 
         private void Select()
@@ -35,16 +41,46 @@ namespace TermWork_2._0
                 {
                     case "0":
                         {
-                            sql = @"select * from order_select()";
+                            sql = @"select * from Orders";
                             break;
                         }
                     case "1":
                         {
-                            sql = @"select * from manager_select()";
+                            sql = @"select * from Manager";
+                            break;
+                        }
+                    case "2":
+                        {
+                            sql = @"select * from Hall";
+                            break;
+                        }
+                    case "3":
+                        {
+                            sql = @"select * from Dish";
+                            break;
+                        }
+                    case "4":
+                        {
+                            sql = @"select * from Product";
+                            break;
+                        }
+                    case "5":
+                        {
+                            sql = @"select * from OrderedHall";
+                            break;
+                        }
+                    case "6":
+                        {
+                            sql = @"select * from OrderedDish";
+                            break;
+                        }
+                    case "7":
+                        {
+                            sql = @"select * from DishProduct";
                             break;
                         }
                     default:
-                        sql = @"select * from order_select()";
+                        sql = @"select * from Orders";
                         break;
                 }
 
