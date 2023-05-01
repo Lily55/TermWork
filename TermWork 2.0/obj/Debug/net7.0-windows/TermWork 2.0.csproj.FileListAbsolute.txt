@@ -1,0 +1,20 @@
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.csproj.AssemblyReference.cache
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork_2._0.Form1.resources
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.csproj.GenerateResource.cache
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.AssemblyInfoInputs.cache
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.AssemblyInfo.cs
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.csproj.CoreCompileInputs.cache
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\TermWork 2.0.exe
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\TermWork 2.0.deps.json
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\TermWork 2.0.runtimeconfig.json
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\TermWork 2.0.dll
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\TermWork 2.0.pdb
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\bin\Debug\net7.0-windows\Npgsql.dll
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.csproj.CopyComplete
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.dll
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\refint\TermWork 2.0.dll
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.pdb
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\TermWork 2.0.genruntimeconfig.cache
+C:\Users\Maria\OneDrive\Рабочий стол\C#\TermWork 2.0\TermWork 2.0\obj\Debug\net7.0-windows\ref\TermWork 2.0.dll
