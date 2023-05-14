@@ -33,6 +33,7 @@
             comboBox1 = new ComboBox();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -92,11 +93,22 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(757, 12);
+            button3.Name = "button3";
+            button3.Size = new Size(183, 74);
+            button3.TabIndex = 5;
+            button3.Text = "Select-запросы";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1349, 633);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(comboBox1);
@@ -117,5 +129,6 @@
         private ComboBox comboBox1;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

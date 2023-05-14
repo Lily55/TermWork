@@ -1,11 +1,19 @@
 using Npgsql;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TermWork_2._0
 {
     public partial class Form1 : Form
     {
-        private string connString = String.Format("Server={0}; Port = {1};" +
+        public string connString = String.Format("Server={0}; Port = {1};" +
         "User ID = {2}; Password = {3}; Database = {4}", "localhost", 5432, "postgres", "CrazybirD", "Ordering a banquet");
 
         private NpgsqlConnection conn;
@@ -22,69 +30,25 @@ namespace TermWork_2._0
         private void Form1_Load(object sender, EventArgs e)
         {
             conn = new NpgsqlConnection(connString);
+            sql = @"select * from orders order by 1  limit 500";
+            Choose();
             comboBox1.Items.Insert(0, "Заказы");
             comboBox1.Items.Insert(1, "Менеджеры");
-            comboBox1.Items.Insert(2, "Залы");
-            comboBox1.Items.Insert(3, "Блюда");
-            comboBox1.Items.Insert(4, "Продукты");
-            comboBox1.Items.Insert(5, "Арендованные залы");
-            comboBox1.Items.Insert(6, "Заказанные блюда");
-            comboBox1.Items.Insert(7, "Продукты в блюдах");
+            comboBox1.Items.Insert(2, "Клиенты");
+            comboBox1.Items.Insert(3, "Типы банкетов");
+            comboBox1.Items.Insert(4, "Залы");
+            comboBox1.Items.Insert(5, "Блюда");
+            comboBox1.Items.Insert(6, "Продукты");
+            comboBox1.Items.Insert(7, "Арендованные залы");
+            comboBox1.Items.Insert(8, "Заказанные блюда");
+            comboBox1.Items.Insert(9, "Продукты в блюдах");
         }
 
-        private void Select()
+        private void Choose()
         {
             try
             {
                 conn.Open();
-                switch (tableChoice)
-                {
-                    case "0":
-                        {
-                            sql = @"select * from Orders";
-                            break;
-                        }
-                    case "1":
-                        {
-                            sql = @"select * from Manager";
-                            break;
-                        }
-                    case "2":
-                        {
-                            sql = @"select * from Hall";
-                            break;
-                        }
-                    case "3":
-                        {
-                            sql = @"select * from Dish";
-                            break;
-                        }
-                    case "4":
-                        {
-                            sql = @"select * from Product";
-                            break;
-                        }
-                    case "5":
-                        {
-                            sql = @"select * from OrderedHall";
-                            break;
-                        }
-                    case "6":
-                        {
-                            sql = @"select * from OrderedDish";
-                            break;
-                        }
-                    case "7":
-                        {
-                            sql = @"select * from DishProduct";
-                            break;
-                        }
-                    default:
-                        sql = @"select * from Orders";
-                        break;
-                }
-
-
                 cmd = new NpgsqlCommand(sql, conn);
                 dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
@@ -106,13 +70,75 @@ namespace TermWork_2._0
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             tableChoice = comboBox1.SelectedIndex.ToString();
-            Select();
+            switch (tableChoice)
+            {
+                case "0":
+                    {
+                        sql = @"select * from orders where finish_cost is not null order by 1  limit 500";
+                        break;
+                    }
+                case "1":
+                    {
+                        sql = @"select * from Manager";
+                        break;
+                    }
+                case "2":
+                    {
+                        sql = @"select * from Client";
+                        break;
+                    }
+                case "3":
+                    {
+                        sql = @"select * from BanquetType";
+                        break;
+                    }
+                case "4":
+                    {
+                        sql = @"select * from Hall";
+                        break;
+                    }
+                case "5":
+                    {
+                        sql = @"select * from Dish";
+                        break;
+                    }
+                case "6":
+                    {
+                        sql = @"select * from Product";
+                        break;
+                    }
+                case "7":
+                    {
+                        sql = @"select * from OrderedHall";
+                        break;
+                    }
+                case "8":
+                    {
+                        sql = @"select * from OrderedDish";
+                        break;
+                    }
+                case "9":
+                    {
+                        sql = @"select * from DishProduct";
+                        break;
+                    }
+                default:
+                    sql = @"select * from Orders";
+                    break;
+            }
+            Choose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
         }
     }
 }
