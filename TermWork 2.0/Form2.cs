@@ -89,5 +89,88 @@ namespace TermWork_2._0
                     limit 10";
             Choose();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "Какие заказы включают блюда, использующие самые редкие продукты? Вывести номер заказа, название блюда, название продукта";
+            sql = @"select order_id, dish_name, product_name
+                    from ordereddish
+		                    inner join dish using(dish_id)
+		                    inner join dishproduct using(dish_id)
+		                    inner join product using(product_id)
+                    group by order_id, dish_name, product_name
+                    having sum(products_amount) = (select min(Количество_штук)
+								                    from (select product_id, sum(products_amount) as Количество_штук
+										                    from dishproduct
+										                    group by product_id
+										                    order by Количество_штук) query_1)";
+            Choose();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "Какие клиенты какие залы чаще всего заказывают?";
+            sql = @"select client_name as Имя_клиента, (array_agg(hall_name))[1] as Чаще_заказываемый_зал, (array_agg(replics_amount))[1] as Количество_праздников
+					from (select client_name, hall_name, count(hall_name) as replics_amount
+							from orders
+								inner join orderedhall using(order_id)
+								inner join client using(client_id)
+								inner join hall using(hall_id)
+														  
+							group by client_name, hall_name
+							order by 1, 3 desc) query_1
+													
+					group by client_name";
+            Choose();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "Для клиентов у которых средняя конечная стоимость заказов выше средней конечной стоимости по суммам заказов клиентов (общей стоимости всех заказов клиентов), вывести имя, общую конечную стоимость всех заказов, количество заказов.";
+            sql = @"select client_name, count(order_id) as orders_amount, round(sum(finish_cost)/count(order_id),2) as middle_finish_cost
+                    from orders
+	                    inner join client using(client_id)
+                    group by client_name
+                    having round(sum(finish_cost)/count(order_id),2) > (select round(avg(finish_cost),2) as middle_cost
+													                    from orders)";
+            Choose();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "Какие клиенты, какие блюда чаще всего заказывают на Новый год?";
+            sql = @"select client_name as Имя_клиента, (array_agg(dish_name))[1] as Чаще_заказываемое_блюдо, (array_agg(replics_amount))[1] as Количество_заказов
+					from (select client_name, dish_name, count(dish_name) as replics_amount
+							from orders
+								inner join ordereddish using(order_id)
+								inner join client using(client_id)
+								inner join dish using(dish_id)
+							where banquet_type_id = (select banquet_type_id
+													from banquettype
+													where banquet_type_name like 'New Year%')							  
+							group by client_name, dish_name
+							order by 1, 3 desc) query_1
+													
+					group by client_name";
+            Choose();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "Вывести статистику по клиенту за определённый период (какие блюда для каких праздников чаще всего заказывались)";
+            sql = @"select client_name, banquet_type_name, (array_agg(dish_name))[1] as Самое_заказываемое_блюдо, (array_agg(dish_count))[1] as Количество_заказов_блюда
+                    from(select client_name, banquet_type_name, dish_name, count(dish_id) as dish_count
+                    from orders
+	                    join client using(client_id)
+	                    join BanquetType using(banquet_type_id)
+	                    join ordereddish using(order_id)
+	                    join dish using(dish_id)
+                    where client_id = 101
+		                    and date_time between '2017-08-05' and '2021-09-30'
+                    group by client_name, banquet_type_name, dish_name
+                    order by 2, 4 desc) query_1
+                    group by client_name, banquet_type_name";
+            Choose() ;
+        }
     }
 }
