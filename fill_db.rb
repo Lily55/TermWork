@@ -106,6 +106,8 @@ def client_values()
   return %(('#{manager_name}', '#{client_adress}', '#{phone_number}', '#{client_email}'))
 end
 
+
+
 # conn.exec(%(Insert into Client (client_name, client_adress, phone_number, email) 
 #   Values #{100.times.collect{client_values}.to_a.join(',')}))
 
@@ -185,8 +187,8 @@ end
 # conn.exec(%(Insert into orderedhall (order_id, hall_id) 
 #   Values #{100000.times.collect{ordered_hall_values}.to_a.join(',')}))
 
-# for i in 1..40 do
-# conn.exec(%(Update Manager set dismiss_date = '#{dismiss_date}' where manager_id = #{manager_id} and dismiss_date is null))
+# for i in 1..101 do
+# conn.exec(%(Update Manager set email = '#{client_email}' where manager_id = #{i}))
 # end
 
 def banquet_type()
@@ -196,6 +198,6 @@ end
 # conn.exec(%(Insert into orders (banquet_type_id) 
 #   Values #{10000000.times.collect{banquet_type}.to_a.join(',')}))
 
-# for i in 1..10000000 do
-# conn.exec(%(Update orders set banquet_type_id = '#{Faker::Number.between(from: 1, to: 6)}' where order_id = #{i}))
+# for i in 1..100000 do
+# conn.exec(%(Update orders set banquet_type_id = 1 where banquet_type_id = 4))
 # end

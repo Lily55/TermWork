@@ -9,6 +9,9 @@ create table if not exists Manager (
 	manage_name text NOT NULL,
 	employ_date date NOT NULL,
 	dismiss_date date
+	phone_number varchar(13) NOT NULL,
+	address text NOT NULL,
+	email text NOT NULL
 );
 
 create table if not exists Dish (
